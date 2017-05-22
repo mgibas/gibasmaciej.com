@@ -1,0 +1,74 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" async href="../gibasmaciej-com-app/gibasmaciej-logo.html">
+<link rel="import" async href="../gibasmaciej-com-app/gibasmaciej-menu-button.html">
+
+<dom-module id="gibasmaciej-com-app">
+  <template>
+    <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+    <style>
+      :host {
+        display: block;
+        min-height: 100vh;
+      }
+      .fullblead {
+        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+        color: var(--primary-text-color);
+      }
+
+    </style>
+    <div class="layout vertical fullblead">
+      <div class="layout horizontal">
+        <div>
+          <a href="#/github" tabindex="-1">
+            <gibasmaciej-menu-button icon="gc:github"></gibasmaciej-menu-button>
+          </a>
+        </div>
+        <div class="flex"></div>
+        <div>
+          <a href="#/twitter" tabindex="-1">
+            <gibasmaciej-menu-button icon="gc:twitter"></gibasmaciej-menu-button>
+          </a>
+        </div>
+      </div>
+      <div class="flex layout vertical center-center">
+        <a href="#/about">
+          <gibasmaciej-logo></gibasmaciej-logo>
+        </a>
+      </div>
+      <div class="layout horizontal">
+        <div>
+          <a href="#/github" tabindex="-1">
+            <gibasmaciej-menu-button icon="folder"></gibasmaciej-menu-button>
+          </a>
+        </div>
+        <div class="flex"></div>
+        <div>
+          <a href="#/twitter" tabindex="-1">
+            <gibasmaciej-menu-button icon="help"></gibasmaciej-menu-button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+
+    class GibasmaciejComApp extends Polymer.Element {
+      static get is() { return 'gibasmaciej-com-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'gibasmaciej-com-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(GibasmaciejComApp.is, GibasmaciejComApp);
+  </script>
+</dom-module>
