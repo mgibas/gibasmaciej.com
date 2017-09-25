@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-styles/element-styles/paper-material-styles.html">
+<link rel="import" href="../common-components/app-styles.html">
+
+<dom-module id="github-component">
+  <template>
+    <style include="app-styles paper-material-styles"></style>
+    <style>
+      :host {
+        display: block;
+        max-width: calc(100vw - 8rem);
+      }
+      header{
+        padding: 2rem 0;
+      }
+    </style>
+    <article class="paper-material" elevation="1">
+      <header class="layout horizontal center">
+        <a href="https://github.com/mgibas" target="__blank">
+          <h1>
+            mgibas
+          </h1>
+        </a>
+      </header>
+      <section>
+        Our industry is great about sharing and GitHub is a great for that!
+        You can find my contributions here and there as well as couple small
+        libraries/utilities. Most of my work (if not all) is shared as public repo
+         - cause why not?! :)
+      </section>
+    </article>
+  </template>
+  <script>
+    class GithubComponent extends Polymer.Element {
+      static get is() { return 'github-component'; }
+    }
+
+    window.customElements.define(GithubComponent.is, GithubComponent);
+  </script>
+</dom-module>

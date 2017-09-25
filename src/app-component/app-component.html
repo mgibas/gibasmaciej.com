@@ -1,0 +1,79 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/app-active-route/app-active-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../common-components/app-styles.html">
+<link rel="import" href="../common-components/app-icons.html">
+<link rel="import" href="../app-component/app-logo.html" async>
+<link rel="import" href="../github-component/github-component.html" async>
+<link rel="import" href="../twitter-component/twitter-component.html" async>
+<link rel="import" href="../about-component/about-component.html" async>
+
+<dom-module id="app-component">
+  <template>
+    <style include="app-styles"></style>
+    
+    <app-location route="{{route}}"></app-location>
+    <app-active-route pattern="{{selectedPattern}}" fallback-pattern="/">
+      <app-route route="{{route}}" pattern="/github"></app-route>
+      <app-route route="{{route}}" pattern="/twitter"></app-route>
+      <app-route route="{{route}}" pattern="/about"></app-route>
+    </app-active-route>
+
+    <div class="layout vertical fullblead">
+        <div class="layout horizontal">
+          <div>
+            <a href="/github" tabindex="-1">
+              <paper-icon-button id="github" icon="app:github" morph-source-for="github"></paper-icon-button>
+            </a>
+          </div>
+          <div class="flex"></div>
+          <div>
+            <a href="/twitter" tabindex="-1">
+              <paper-icon-button id="twitter" icon="app:twitter"></paper-icon-button>
+            </a>
+          </div>
+        </div>
+        <div class="flex layout vertical center-center">
+          <iron-pages selected="[[selectedPattern]]" attr-for-selected="for-pattern">
+            <app-logo for-pattern="/"></app-logo>
+            <github-component for-pattern="/github" morph-target-for="github"></github-component>
+            <twitter-component for-pattern="/twitter" morph-target-for="twitter"></twitter-component>
+            <about-component for-pattern="/about" morph-target-for="about"></about-component>
+          </iron-pages>
+        </div>
+        <div class="layout horizontal">
+          <div>
+          </div>
+          <div class="flex"></div>
+          <div>
+            <a href="/about" tabindex="-1">
+              <paper-icon-button id="help" icon="help"></paper-icon-button>
+            </a>
+          </div>
+        </div>
+      </div>
+  </template>
+
+  <script>
+
+    class AppComponent extends Polymer.Element {
+      static get is() { return 'app-component'; }
+      _pageChanged(e, details){
+        console.log(details.value)
+        let page = details.value.substring(1);
+        let source = this.shadowRoot.querySelector(`[morph-source-for="${page}"]`);
+        let target = this.shadowRoot.querySelector(`[morph-target-for="${page}"]`);
+
+        target.animate({ transform: [ 'rotate(0deg)', 'rotate(360deg)' ] },
+             { duration: 1000, iterations: Infinity });
+
+      }
+    }
+
+    window.customElements.define(AppComponent.is, AppComponent);
+  </script>
+</dom-module>

@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-styles/element-styles/paper-material-styles.html">
+<link rel="import" href="../common-components/app-styles.html">
+
+<dom-module id="twitter-component">
+  <template>
+    <style include="app-styles paper-material-styles"></style>
+    <style>
+      :host {
+        display: block;
+        max-width: calc(100vw - 8rem);
+      }
+      header{
+        padding: 2rem 0;
+      }
+    </style>
+    <article class="paper-material" elevation="2">
+      <header class="layout horizontal center">
+        <a href="https://twitter.com/gibasmaciej" target="__blank">
+          <h1>
+            @gibasmaciej
+          </h1>
+        </a>  
+      </header>
+      <section>
+        Not twitting much, but hey - you can always twitt me if u feel like
+        contacting :)
+      </section>
+    </article>
+  </template>
+  <script>
+    class TwitterComponent extends Polymer.Element {
+      static get is() { return 'twitter-component'; }
+    }
+
+    window.customElements.define(TwitterComponent.is, TwitterComponent);
+  </script>
+</dom-module>

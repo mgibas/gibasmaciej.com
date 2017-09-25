@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
+<dom-module id="app-styles">
+  <template>
+    <style include="iron-flex"></style>
+    <style>
+    .fullblead {
+      min-height: 100vh;
+      min-width:100vw;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-text-color);
+    }
+
+    .paper-material {
+      padding: 2rem;
+      background-color: var(--light-theme-background-color);
+    }
+    * {
+      @apply --paper-font-body1;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      @apply --paper-font-headline;
+    }
+    </style>
+  </template>
+</dom-module>
